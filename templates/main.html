@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <table class="table">
+        <thead>
+            <tr class="text-center">
+                <th scope="col">Preview</th>
+                <th scope="col">Hex Color</th>
+                <th scope="col">Copy</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for renk in renkler %}
+            <tr class="text-center">
+                <td style="background-color:{{renk.hex}}"></td>
+                <td>{{renk.hex}}</td>
+                <td>
+                    <button class="btn btn-outline-primary copy-btn" data-hex={{renk.hex}}><!--!Burdaki data-hex js terefine gonderilecek renk.hex den gelen melumat-->
+                        Click
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+        
+        </tbody>
+    </table>
+</body>
+
+</html>
+{% endblock content %}
